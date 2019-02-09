@@ -15,22 +15,27 @@ export default class Entity {
     private hasJumped: boolean;
     private isLeftWallTouched: boolean;
     private isRightWallTouched: boolean;
+    private leftWalking_src: string;
+    private rightWalking_src: string;
 
     private image: HTMLImageElement;
 
-    public constructor(imgsrc: string, x_size: number, y_size: number) {
+    public constructor(src_left: string, src_right: string, x_size: number, y_size: number) {
         this.x = 0;
         this.y = 0;
         this.dx = 0;
         this.dy = 0;
 
         this.image = new Image(x_size, y_size);
-        this.image.src = imgsrc;
+        this.image.src = src_left;
         this.x_size = x_size;
         this.y_size = y_size;
         this.hasJumped = true;
         this.isLeftWallTouched = false;
         this.isRightWallTouched = false;
+
+        this.leftWalking_src = src_left;
+        this.rightWalking_src = src_right;
     }
 
     public leftWallTouched(): boolean {
@@ -69,10 +74,16 @@ export default class Entity {
 
         // Friction
         if (this.dx > 0) {
+            // Going right
+            this.image.src = this.rightWalking_src;
             --this.dx;
         }
         if (this.dx < 0) {
+            // Going left
+            this.image.src = this.leftWalking_src;
             ++this.dx;
+        } else {
+
         }
 
     }

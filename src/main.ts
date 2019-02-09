@@ -25,7 +25,7 @@ function init(): void {
     canvas.width = 800;
     canvas.height = 400;
     keyboard = new Input();
-    character = new Entity('res/sprite/person.png', 100, 150);
+    character = new Entity('res/sprite/walk-left.png', 'res/sprite/walk-right.png', 150, 250);
     r.font = '12px Arial black';
     loadLevel('res/blockbuster-interior.jpg', 'You are in blockbuster');
 }
