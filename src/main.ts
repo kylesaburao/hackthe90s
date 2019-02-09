@@ -1,8 +1,10 @@
 import TestCounter from './app/TestCounter';
 
+const RENDER_CANVAS_ID: string = 'renderCanvas';
+
 let x: TestCounter = new TestCounter();
 
-let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('renderCanvas');
+let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById(RENDER_CANVAS_ID);
 let r: CanvasRenderingContext2D = <CanvasRenderingContext2D> canvas.getContext('2d');
 let counter: number = 0;
 
