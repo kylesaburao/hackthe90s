@@ -1,7 +1,7 @@
 body {
     margin: 5%;
-    background-size: 800px;
-    background-image: url("images/blockbusterRuins.jpg");
+    background-size: 100px;
+    background-image: url("images/starsglow1.gif");
     background-color: black;
 }
 
@@ -60,4 +60,12 @@ tr {
     height: 400px;
     width: 800px;
     background-color: gray;
+}
+
+#location {
+    color: white;
+}
+
+#flavourText {
+    color: white;
 }
