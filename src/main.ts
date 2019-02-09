@@ -5,10 +5,14 @@ import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 import Level from './level/Level';
 
 const RENDER_CANVAS_ID: string = 'renderCanvas';
+const MESSAGE_PARAGRAPH_ID: string = 'flavourText';
+const LOCATION_ID: string = 'location';
 
 let x: TestCounter = new TestCounter();
 
 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById(RENDER_CANVAS_ID);
+let gameText: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById(MESSAGE_PARAGRAPH_ID);
+let locationHeader: HTMLHeadingElement = <HTMLHeadingElement>document.getElementById(LOCATION_ID);
 let r: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext('2d');
 let counter: number = 0;
 
@@ -23,15 +27,16 @@ function init(): void {
     keyboard = new Input();
     character = new Entity('res/sprite/person.png', 100, 150);
     r.font = '12px Arial black';
-    loadLevel('res/blockbuster-interior.jpg', 'none');
+    loadLevel('res/blockbuster-interior.jpg', 'You are in blockbuster');
 }
 
 function loadLevel(dir: string, message: string): void {
     character.setX(canvas.width / 2 - character.getWidth() / 2);
-    let level = new Level(dir, message, canvas);
+    let level = new Level(dir, message, 'Blockbuster', canvas);
     background = level.background;
     message = level.message;
-
+    gameText.textContent = message;
+    locationHeader.textContent = level.location;
 }
 
 function loop(): void {
