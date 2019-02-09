@@ -13,6 +13,8 @@ export default class Entity {
     private y_size: number;
 
     private hasJumped: boolean;
+    private isLeftWallTouched: boolean;
+    private isRightWallTouched: boolean;
 
     private image: HTMLImageElement;
 
@@ -27,8 +29,17 @@ export default class Entity {
         this.x_size = x_size;
         this.y_size = y_size;
         this.hasJumped = true;
+        this.isLeftWallTouched = false;
+        this.isRightWallTouched = false;
     }
 
+    public leftWallTouched(): boolean {
+        return this.isLeftWallTouched;
+    }
+
+    public rightWallTouched(): boolean {
+        return this.isRightWallTouched;
+    }
 
     public tick(x_max: number, y_max: number): void {
 
@@ -36,9 +47,15 @@ export default class Entity {
         this.dy += this.GRAVITY;
 
         if (this.x + this.image.width > x_max) {
+            // Right wall
+            this.isRightWallTouched = true;
             this.x = x_max - this.image.width;
         } else if (this.x < 0) {
+            this.isLeftWallTouched = true;
             this.x = 0;
+        } else {
+            this.isRightWallTouched = false;
+            this.isLeftWallTouched = false;
         }
 
         this.y += this.dy;

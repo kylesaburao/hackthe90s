@@ -54,6 +54,14 @@ function loop(): void {
     }
     r.drawImage(background, 0, -250);
     r.drawImage(character.getImageSource(), character.getX(), character.getY(), character.getWidth(), character.getHeight());
+
+    // Detect to switch level
+    if (character.leftWallTouched()) {
+        console.log("Left wall touched");
+    } else if (character.rightWallTouched()) {
+        console.log("Right wall touched");
+    }
+
     requestAnimationFrame(loop);
 }
 
