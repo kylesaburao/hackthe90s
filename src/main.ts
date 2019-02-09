@@ -1,21 +1,54 @@
 import TestCounter from './app/TestCounter';
+import Input from './input/Input';
+import Entity from './obj/Entity';
+import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
+import Level from './level/Level';
+
+const RENDER_CANVAS_ID: string = 'renderCanvas';
 
 let x: TestCounter = new TestCounter();
 
-let canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('renderCanvas');
-let r: CanvasRenderingContext2D = <CanvasRenderingContext2D> canvas.getContext('2d');
+let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById(RENDER_CANVAS_ID);
+let r: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext('2d');
 let counter: number = 0;
 
+let keyboard: Input;
+let character: Entity;
+let background: HTMLImageElement;
+let message: string;
+
 function init(): void {
-    canvas.width = 100;
-    canvas.height = 100;
+    canvas.width = 800;
+    canvas.height = 400;
+    keyboard = new Input();
+    character = new Entity('res/sprite/person.png', 100, 150);
     r.font = '12px Arial black';
+    loadLevel('res/blockbuster-interior.jpg', 'none');
+}
+
+function loadLevel(dir: string, message: string): void {
+    character.setX(canvas.width / 2 - character.getWidth() / 2);
+    let level = new Level(dir, message, canvas);
+    background = level.background;
+    message = level.message;
+
 }
 
 function loop(): void {
     ++counter;
-    r.clearRect(0, 0, 100, 100);
+    r.clearRect(0, 0, 800, 400);
     r.fillText(counter.toString(), 10, 10);
+    character.tick(canvas.width, canvas.height);
+    if (keyboard.leftKeyDown) {
+        character.accelerateLeft(3);
+    } else if (keyboard.rightKeyDown) {
+        character.accelerateRight(3);
+    }
+    if (keyboard.upKeyDown) {
+        character.accelerateUp(40);
+    }
+    r.drawImage(background, 0, -250);
+    r.drawImage(character.getImageSource(), character.getX(), character.getY(), character.getWidth(), character.getHeight());
     requestAnimationFrame(loop);
 }
 
