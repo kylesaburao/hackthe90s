@@ -2,6 +2,10 @@
 
 This is a basic Excalibur.js game.
 
+## Using
+
+https://excaliburjs.com/docs/getting-started
+
 ## Installing
 
 `npm install excalibur`
