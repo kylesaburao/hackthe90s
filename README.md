@@ -1,5 +1,18 @@
-# hackthe90s
+# My Excalibur.js Game
 
-## Building
+This is a basic Excalibur.js game.
 
-Run `gulp` in terminal set to the project root.
+## Installing
+
+`npm install excalibur`
+`npm install -g yo`
+`npm install -g @excaliburjs/generator-excalibur`
+
+## Compiling the game
+
+You will need Node.js and NPM installed.
+
+To compile:
+
+    npm install
+    npm start
