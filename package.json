@@ -6,7 +6,7 @@
         "start": "./node_modules/.bin/tsc -p game/tsconfig.json"
     },
     "dependencies": {
-        "excalibur": "latest"
+        "excalibur": "^0.21.0"
     },
     "devDependencies": {
         "typescript": "latest"
