@@ -1,30 +1,50 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-    <title>
-        AAAA
-    </title>
-    <style>
-        body {background-color: #e3eb45}
-        div#content {
-            margin: 0 auto;
-            text-align: center;
-            width: 900px;
-            background-color:	#6f4880;
-        }
-
-    </style>
+    <link rel="stylesheet" href="default.css">
+    <title>Splash Screen</title>
 </head>
 
 <body>
-
-    <div id='content'>
-        <canvas id='renderCanvas'>
-
-        </canvas>
+    <div class="navBar">
+        <table>
+            <tr>
+                <th id="navText"><img src="images/dontsleep.gif"></th>
+                <th id="navLogo" class="center"><img src="images/blockbuster.gif"></th>
+            </tr>
+        </table>
     </div>
 
-    <script src='bundle.js'></script>
-</body>
+    <div class="explanation">
+        <table>
+            <tr>
+                <th class="center">
+                    <h1 class="fullWidth">bl0ckbuster</h1>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p class="center, fullWidth">you find yourself in an abanadoned blockbuster...</p>
+                </th>
+            </tr>
+            <tr>
+                <th class="center">
+                    <canvas id="renderCanvas"></canvas>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p class="center, fullWidth">dolor sit amet, consectetur adipiscing elit. Ut mattis tortor ac nisi eleifend ultricies. <br />
+                        Donec felis arcu, convallis ac faucibus at, dignissim id magna. Praesent molestie varius ultricies.</p>
+                </th>
+            </tr>
+        </table>
+        
 
+        
+    </div>
+
+    <div class="imgDisplay"></div>
+    <script src="bundle.js"></script>
+</body>
 </html>
