@@ -5,9 +5,10 @@
     "scripts": {
         "start": "./node_modules/.bin/tsc -p game/tsconfig.json"
     },
-    "dependencies": {},
+    "dependencies": {
+        "excalibur": "^0.21.0"
+    },
     "devDependencies": {
-        "excalibur": "^0.21.0",
         "typescript": "latest"
     }
 }
