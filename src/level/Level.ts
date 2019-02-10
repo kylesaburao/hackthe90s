@@ -1,13 +1,13 @@
 export default class Level {
 
-    public message: string;
+    public title: string;
+    public directions: string;
     public background: HTMLImageElement;
-    public location: string;
 
-    public constructor(imgdir: string, message: string, location: string, canvas: HTMLCanvasElement) {
+    public constructor(imgdir: string, title: string, directions: string, canvas: HTMLCanvasElement) {
         this.background = new Image(canvas.width, canvas.height);
         this.background.src = imgdir;
-        this.message = message;
-        this.location = location;
+        this.title = title;
+        this.directions = directions;
     }
 }

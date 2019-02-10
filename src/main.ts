@@ -19,7 +19,12 @@ let counter: number = 0;
 let keyboard: Input;
 let character: Entity;
 let background: HTMLImageElement;
-let message: string;
+
+let title: string;
+let direction: string;
+
+let levels: Array<Level> = new Array<Level>();
+levels.push(new Level('res/blockbuster-interior.jpg', ))
 
 function init(): void {
     canvas.width = 800;
@@ -30,7 +35,7 @@ function init(): void {
     loadLevel('res/blockbuster-interior.jpg', 'You are in blockbuster');
 }
 
-function loadLevel(dir: string, message: string): void {
+function loadLevel(index: number): void {
     character.setX(canvas.width / 2 - character.getWidth() / 2);
     let level = new Level(dir, message, 'Blockbuster', canvas);
     background = level.background;
