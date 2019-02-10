@@ -5,14 +5,17 @@ import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 import Level from './level/Level';
 
 const RENDER_CANVAS_ID: string = 'renderCanvas';
-const MESSAGE_PARAGRAPH_ID: string = 'flavourText';
-const LOCATION_ID: string = 'location';
+
+const TITLE_ID: string = 'title';
+const STATUS_ID: string = 'status';
+const DIRECTIONS_ID: string = 'directions';
 
 let x: TestCounter = new TestCounter();
 
 let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById(RENDER_CANVAS_ID);
-let gameText: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById(MESSAGE_PARAGRAPH_ID);
-let locationHeader: HTMLHeadingElement = <HTMLHeadingElement>document.getElementById(LOCATION_ID);
+let titleElement: HTMLHeadingElement = <HTMLHeadingElement>document.getElementById(TITLE_ID);
+let statusElement: HTMLHeadingElement = <HTMLHeadingElement>document.getElementById(STATUS_ID);
+let directionsElement: HTMLParagraphElement = <HTMLParagraphElement>document.getElementById(DIRECTIONS_ID);
 let r: CanvasRenderingContext2D = <CanvasRenderingContext2D>canvas.getContext('2d');
 let counter: number = 0;
 
@@ -21,10 +24,21 @@ let character: Entity;
 let background: HTMLImageElement;
 
 let title: string;
+let status: string;
 let direction: string;
 
+let currentLevel: Level;
 let levels: Array<Level> = new Array<Level>();
-levels.push(new Level('res/blockbuster-interior.jpg', ))
+levels.push(new Level('res/blockbuster-interior.jpg', 'You\'re at Blockbuster', 'Alive', 'Go left for x. Go right for y.', 11, 2, canvas));
+
+function loadLevel(index: number): void {
+    character.setX(canvas.width / 2 - character.getWidth() / 2);
+    currentLevel = levels[index];
+    background = currentLevel.background;
+    titleElement.textContent = currentLevel.title;
+    statusElement.textContent = currentLevel.status;
+    directionsElement.textContent = currentLevel.directions;
+}
 
 function init(): void {
     canvas.width = 800;
@@ -32,16 +46,7 @@ function init(): void {
     keyboard = new Input();
     character = new Entity('res/sprite/walk-left.png', 'res/sprite/walk-right.png', 150, 250);
     r.font = '12px Arial black';
-    loadLevel('res/blockbuster-interior.jpg', 'You are in blockbuster');
-}
-
-function loadLevel(index: number): void {
-    character.setX(canvas.width / 2 - character.getWidth() / 2);
-    let level = new Level(dir, message, 'Blockbuster', canvas);
-    background = level.background;
-    message = level.message;
-    gameText.textContent = message;
-    locationHeader.textContent = level.location;
+    loadLevel(0);
 }
 
 function loop(): void {
