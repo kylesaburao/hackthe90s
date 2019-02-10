@@ -1,0 +1,89 @@
+body {
+    margin: 5%;
+    background-size: 100px;
+    background-image: url("images/starsglow1.gif");
+    background-color: black;
+}
+
+tr {
+    margin: 0px;
+    padding: 0px;
+}
+
+.navBar {
+    background-image: url("images/bluebrick.jpg");
+}
+
+.navBar table {
+    width: 100%;
+    height: 75px;
+}
+.navBar * {
+    margin: 0px;
+}
+
+.center {
+    width: 50%;
+}
+
+#navLogo * {
+    padding-top: 35px;
+    background-color: transparent;
+}
+
+#navLogo {
+    font-size: 75px;
+    text-align: center;
+    background-image: url("images/giphy.gif");
+    width: 15%;
+}
+
+#navText {
+    width: 60%;
+    font-size: 50px;
+    text-align: left;
+    padding-left: 5%;
+    font-family: "Apple Chancery, cursive";
+    color: pink;
+}
+
+.fullwidth {
+    width: 100%;
+    border: 4px solid cyan;
+}
+
+.explanation table {
+    width: 100%;
+}
+
+#mainElement {
+    height: 400px;
+    width: 800px;
+    background-color: gray;
+}
+.notBlack {
+    color: white;
+}
+marquee {
+    width: 25%;
+}
+
+.NEONbluetxt {
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #00DEFF, 0 0 70px #00DEFF, 0 0 80px #00DEFF, 0 0 100px #00DEFF, 0 0 150px #00DEFF;
+}
+
+.BLURtxt {
+    color: #f0f33f;
+    text-shadow: 0 0 0 rgba(0,0,0,0.3), 0 0 0 rgba(0,0,0,0.3), 0 0 0 rgba(0,0,0,0.1), 0 0 0 rgba(0,0,0,0.1), 0 -1px 5px rgba(255,255,255,0.5);
+    -webkit-transition: all 0.5s;
+}
+.BLURtxt:hover {
+    color: transparent;
+    text-shadow: -9px 0 5px rgba(0,0,0,0.3), 9px 0 5px rgba(0,0,0,0.3), -21px 0 5px rgba(0,0,0,0.1), 21px 0 5px rgba(0,0,0,0.1), 0 0 0 rgba(0,0,0,0.1);
+}
+
+.BURNtxt {
+    color: #fff;
+    text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+}
