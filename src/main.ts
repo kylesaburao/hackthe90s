@@ -29,7 +29,8 @@ let direction: string;
 
 let currentLevel: Level;
 let levels: Array<Level> = new Array<Level>();
-levels.push(new Level(1, 'res/blockbuster-interior.jpg', 'You\'re at Blockbuster', 'Alive', 'Go left for x. Go right for y.', 11, 2, canvas));
+levels.push(new Level(1, 'res/bg/1.png', 'You\'re at Blockbuster', 'Alive', 'Go left for x. Go right for y.', 0, 2, canvas));
+levels.push(new Level(0, 'res/bg/0-test.png', 'You\'re outside Blockbuster', 'Alive', 'Go left for x. Go right for y.', 11, 2, canvas));
 
 function findLevel(levelNumber: number): Level {
     for (let i: number = 0; i < levels.length; ++i) {
@@ -53,14 +54,14 @@ function init(): void {
     canvas.width = 800;
     canvas.height = 400;
     keyboard = new Input();
-    character = new Entity('res/sprite/walk-left.png', 'res/sprite/walk-right.png', 150, 250);
+    character = new Entity('res/sprite/walk-left.png', 'res/sprite/walk-right.png', 200, 275);
     r.font = '12px Arial black';
     loadLevel(findLevel(1));
 }
 
 function loop(): void {
     ++counter;
-    r.clearRect(0, 0, 800, 400);
+    r.clearRect(0, 0, canvas.width, canvas.height);
     r.fillText(counter.toString(), 10, 10);
     character.tick(canvas.width, canvas.height);
     if (keyboard.leftKeyDown) {
@@ -69,9 +70,9 @@ function loop(): void {
         character.accelerateRight(3);
     }
     if (keyboard.upKeyDown) {
-        character.accelerateUp(40);
+        character.accelerateUp(20);
     }
-    r.drawImage(background, 0, -250);
+    r.drawImage(background, 0, 0);
     r.drawImage(character.getImageSource(), character.getX(), character.getY(), character.getWidth(), character.getHeight());
 
     // Detect to switch level

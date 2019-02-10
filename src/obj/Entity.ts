@@ -1,6 +1,6 @@
 export default class Entity {
 
-    private readonly GRAVITY: number = 9.81;
+    private readonly GRAVITY: number = 9.81 / 4;
     private readonly MAX_VELOCITY: number = 7;
 
     private x: number;
