@@ -1,5 +1,6 @@
 export default class Level {
 
+    public levelNumber: number;
     public title: string;
     public status: string;
     public directions: string;
@@ -10,9 +11,10 @@ export default class Level {
 
     public background: HTMLImageElement;
 
-    public constructor(imgdir: string, title: string, status: string,
+    public constructor(level_number: number, imgdir: string, title: string, status: string,
         directions: string, left: number, right: number,
         canvas: HTMLCanvasElement) {
+        this.levelNumber = level_number;
         this.background = new Image(canvas.width, canvas.height);
         this.background.src = imgdir;
         this.title = title;

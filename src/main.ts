@@ -29,11 +29,20 @@ let direction: string;
 
 let currentLevel: Level;
 let levels: Array<Level> = new Array<Level>();
-levels.push(new Level('res/blockbuster-interior.jpg', 'You\'re at Blockbuster', 'Alive', 'Go left for x. Go right for y.', 11, 2, canvas));
+levels.push(new Level(1, 'res/blockbuster-interior.jpg', 'You\'re at Blockbuster', 'Alive', 'Go left for x. Go right for y.', 11, 2, canvas));
 
-function loadLevel(index: number): void {
+function findLevel(levelNumber: number): Level {
+    for (let i: number = 0; i < levels.length; ++i) {
+        if (levels[i].levelNumber === levelNumber) {
+            return levels[i];
+        }
+    }
+    return levels[0];
+}
+
+function loadLevel(level: Level): void {
     character.setX(canvas.width / 2 - character.getWidth() / 2);
-    currentLevel = levels[index];
+    currentLevel = level;
     background = currentLevel.background;
     titleElement.textContent = currentLevel.title;
     statusElement.textContent = currentLevel.status;
@@ -46,7 +55,7 @@ function init(): void {
     keyboard = new Input();
     character = new Entity('res/sprite/walk-left.png', 'res/sprite/walk-right.png', 150, 250);
     r.font = '12px Arial black';
-    loadLevel(0);
+    loadLevel(findLevel(1));
 }
 
 function loop(): void {
@@ -67,9 +76,9 @@ function loop(): void {
 
     // Detect to switch level
     if (character.leftWallTouched()) {
-        console.log("Left wall touched");
+        loadLevel(findLevel(currentLevel.leftLevelNumber));
     } else if (character.rightWallTouched()) {
-        console.log("Right wall touched");
+        loadLevel(findLevel(currentLevel.rightLevelNumber));
     }
 
     requestAnimationFrame(loop);
