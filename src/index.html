@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="default.css">
-    <title>Splash Screen</title>
+    <title>Don't Fall Asleep At Blockbuster</title>
 </head>
 
 <body>
@@ -19,12 +20,17 @@
         <table>
             <tr>
                 <th class="center">
-                    <h1 class="fullWidth">bl0ckbuster</h1>
+                    <h2 class="NEONbluetxt" id="title">You board the beautiful Titanic and your wife is overjoyed!</h2>
+                    <MARQUEE>
+                        <h1 id="status" class="fullWidth, BLURtxt">dead</h1>
+                    </MARQUEE>
                 </th>
             </tr>
             <tr>
                 <th>
-                    <p class="center, fullWidth">you find yourself in an abanadoned blockbuster...</p>
+                    <p id="directions" class="center, fullWidth, BURNtxt">
+                        .. Too bad it sinks :/ <br /><br />Refresh to try again!
+                    </p>
                 </th>
             </tr>
             <tr>
@@ -32,19 +38,21 @@
                     <canvas id="renderCanvas"></canvas>
                 </th>
             </tr>
-            <tr>
-                <th>
-                    <p class="center, fullWidth">dolor sit amet, consectetur adipiscing elit. Ut mattis tortor ac nisi eleifend ultricies. <br />
-                        Donec felis arcu, convallis ac faucibus at, dignissim id magna. Praesent molestie varius ultricies.</p>
-                </th>
-            </tr>
         </table>
-        
 
-        
+
+
     </div>
 
     <div class="imgDisplay"></div>
     <script src="bundle.js"></script>
+    <div style='display: none'>
+        <audio controls autoplay loop>
+            <source src="res/music/freshprince.mp3" type="audio/ogg">
+            <embed src="res/music/freshprince.mp3" autostart="true" loop="true" hidden="true">
+        </audio>
+    </div>
+
 </body>
+
 </html>

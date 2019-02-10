@@ -19,6 +19,7 @@ export default class Input {
                 this.rightKeyDown = true;
             } else if (ev.keyCode === 38) {
                 this.upKeyDown = true;
+                ev.preventDefault();
             }
         });
         document.addEventListener('keyup', (ev) => {

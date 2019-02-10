@@ -1,0 +1,12 @@
+{
+    "levels": [
+        {
+            "id": 0,
+            "left": 1,
+            "right": 2,
+            "location": "Blockbuster",
+            "message" : "You are at Blockbuster.",
+            "filename" : "bg.jpg"
+        }
+    ]
+}
