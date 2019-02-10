@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="default.css">
     <title>Don't Fall Asleep At Blockbuster</title>
@@ -20,13 +21,15 @@
             <tr>
                 <th class="center">
                     <h2 class="NEONbluetxt" id="title">You board the beautiful Titanic and your wife is overjoyed!</h2>
-                    <MARQUEE><h1 id="status" class="fullWidth, BLURtxt">dead</h1></MARQUEE>
+                    <MARQUEE>
+                        <h1 id="status" class="fullWidth, BLURtxt">dead</h1>
+                    </MARQUEE>
                 </th>
             </tr>
             <tr>
                 <th>
                     <p id="directions" class="center, fullWidth, BURNtxt">
-                        .. Too bad it sinks :/  <br /><br />Refresh to try again!
+                        .. Too bad it sinks :/ <br /><br />Refresh to try again!
                     </p>
                 </th>
             </tr>
@@ -36,16 +39,20 @@
                 </th>
             </tr>
         </table>
-        
 
-        
+
+
     </div>
 
     <div class="imgDisplay"></div>
     <script src="bundle.js"></script>
-    <audio controls autoplay loop>
-        <source src="music/freshprince.mp3" type="audio/ogg">
-        <embed src="music/freshprince.mp3" autostart="true" loop="true" hidden="true"> 
-    </audio>
+    <div style='display: none'>
+        <audio controls autoplay loop>
+            <source src="res/music/freshprince.mp3" type="audio/ogg">
+            <embed src="res/music/freshprince.mp3" autostart="true" loop="true" hidden="true">
+        </audio>
+    </div>
+
 </body>
+
 </html>
