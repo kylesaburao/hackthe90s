@@ -26,6 +26,6 @@
   },
   "dependencies": {
     "http-server": "^0.11.1",
-    "phaser": "^3.16.1"
+    "phaser": "^3.55.2"
   }
 }
